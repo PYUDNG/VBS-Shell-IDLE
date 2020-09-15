@@ -466,10 +466,10 @@ Function GetUAC(ByVal Host, ByVal Hide)
     If HaveUAC Then FSO.DeleteFile TFPath, True
     ' If No UAC Then Get It Else Check & Correct The Host
     If Not HaveUAC Then
-        SA.ShellExecute "wscript.exe", "//e:VBScript " & Chr(34) & WScript.ScriptFullName & chr(34) & Args, "", "runas", 1
+        SA.ShellExecute "wscript.exe", "//NOLOGO //e:VBScript " & Chr(34) & WScript.ScriptFullName & chr(34) & Args, "", "runas", 1
         WScript.Quit
     ElseIf LCase(Right(WScript.FullName,12)) <> "\" & HostName Then
-        ws.Run HostName & " //e:VBScript """ & WScript.ScriptFullName & """" & Args, Int(Hide)+1, False
+        ws.Run HostName & " //NOLOGO //e:VBScript """ & WScript.ScriptFullName & """" & Args, Int(Hide)+1, False
         WScript.Quit
     End If
     If Host = 2 Then ExecuteGlobal "Dim SI, SO: Set SI = WScript.StdIn: Set SO = WScript.StdOut"
