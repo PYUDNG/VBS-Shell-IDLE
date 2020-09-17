@@ -1,8 +1,17 @@
+' Linux commands support for VBShell
+' Use "Import" command in VBShell, DO NOT RUN THIS SCRIPT DIRECTLY!! 
+
+Const ModelVersion = "1.0.0.2"
+
+'==============================/Import Execution/==============================
+
 Function ImportExecute()
     Dim ModeOn
     ModeOn = False
     ShellMode True
 End Function
+
+'================================/Script Start/================================
 
 Function ShellMain()
     ''' 命令行模式主函数 '''
